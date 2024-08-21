@@ -1,6 +1,7 @@
 #include <OneWire.h>
 #include <DallasTemperature.h>
 #include <LoRa.h>
+#include <ArduinoLowPower.h>
 
 // Data wire is connected to pin 2 on the Arduino
 #define ONE_WIRE_BUS 2
@@ -51,6 +52,8 @@ void loop() {
   
   digitalWrite(LED_BUILTIN, LOW);
 
-  // Wait before sending the next reading
-  delay(5000);  // Adjust the delay as needed
+  // Enter sleep mode for 5 minutes
+  for (int i = 0; i < 30; i++) {
+    LowPower.sleep(10000); // Sleep for 10 seconds (30 times = 300 seconds)
+  }
 }
