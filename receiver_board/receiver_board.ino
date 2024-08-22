@@ -11,6 +11,12 @@ void setup() {
     Serial.println("Starting LoRa failed!");
     while (1);
   }
+
+  // Set the spread factor to increase reliability
+  LoRa.setSpreadingFactor(8);
+
+  // Set bandwidth. Higher bandwidth increases reliability but also increases required signal strength
+  LoRa.setSignalBandwidth(250E3);
 }
 
 void loop() {

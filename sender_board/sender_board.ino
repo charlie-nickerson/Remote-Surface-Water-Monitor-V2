@@ -27,6 +27,15 @@ void setup() {
       delay(100);
     }
   }
+
+  // Set the transmission power (can range from 2 to 20)
+  LoRa.setTxPower(20);
+
+  // Set the spread factor to increase reliability
+  LoRa.setSpreadingFactor(8);
+
+  // Set bandwidth. Higher bandwidth increases reliability but also increases required signal strength
+  LoRa.setSignalBandwidth(250E3);
   
   // Indicate LoRa startup success by blinking LED slowly
   pinMode(LED_BUILTIN, OUTPUT);
